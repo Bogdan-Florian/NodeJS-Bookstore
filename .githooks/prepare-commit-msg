@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# With thanks to Sergio Vaccaro <sergio.vaccaro@istat.it>
+
+set -e # using the options command to abort script at first error
+
+echo "PREPARE-COMMIT-MSG"
+rm $1 # Remove preexisting commit message file
+
+echo "$(cat .git/COMMIT_MODIFIED)" >> $1 # read from custom file and write to git's file
+
+
+# Branch to protect
+PROTECTED_BRANCH="master"
+
+# Remote
+REMOTE=""
+#Check for merges
+if [[ $2 != 'merge' ]]; then
+    # Not a merge
+    echo "  not a merge"
+fi
+
+
+#Current branch
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+# Check if in PROTECTED_BRANCH
+if [[ "$CURRENT_BRANCH" == "$PROTECTED_BRANCH" ]]; then
+    # in PROTECTED_BRANCH: cannot proceed
+    ECHO "in the ${PROTECTED_BRANCH} branch cannot proceed"
+    echo "Commit passed all tests and is ready to be added"
+    echo "  you are trying to merge into the ${PROTECTED_BRANCH} branch"
+    echo "  merging branches to master must be done by creating a pull request"
+    echo "  this merge has been cancelled however you will need to"
+    echo "  reset the operation before continuing by running git reset --merge"
+    echo
+    exit 1
+fi
+
+echo "Commit has passed all test and is ready to proceed"
+exit 0
