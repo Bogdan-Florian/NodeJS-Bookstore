@@ -8,27 +8,77 @@
 		<meta name="description" content="form to add new books">
 		<meta name="author" content="Mark Tyers">
 		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
-		<script type="module" src="main.js"></script>
 	</head>
 	<body>
 		<header>
-			<h1>Home</h1>
+			<h1 class="main-title">Home</h1>
 			{{#if authorised}}
 				<a href="/logout">Log out</a>
 			{{else}}
 				<a href="/login">Log in</a>
 			{{/if}}
 		</header>
+ 
+    
+    
+    
 		{{#if msg}}
- 			<aside>
-				<p class="msg">{{msg}}</p>
-			</aside>
+ 			<p class="msg">{{msg}}</p>
 		{{/if}}
 	<main>
-		<p>This is the home page. Users can see it without logging in.</p>
-		{{#if authorised}}
+
+    <h4 class="book-title-header">Books</h4>
+      
+    
+    
+    <div class="outerContainer">
+
+    
+          <div class="container">
+
+    {{#each data}}
+     
+          
+        
+        <div class="item">
+          
+          <div class="book-name"><b>{{bookname}}</b></div>
+      <div class="book-author">{{author}}</div>
+
+  <a target="_blank" href="/{{id}}">
+    <img src="{{image}}" alt="" width="300" height="300">
+  </a>
+    <div class="book-price">Price:£{{price}}</div>
+
+    </div>
+
+   
+        
+    
+    
+        {{/each}}
+
+        </div>
+
+
+    </div>
+    
+    
+ 
+    
+    
+  
+<!--    
+ {{#if authorised}}
 			<p><a href="/secure">secure page</a></p>
-		{{/if}}
+		{{/if}} 
+-->
 	</main>
+    
+    
+    
+    
+    
+    
 	</body>
 </html>

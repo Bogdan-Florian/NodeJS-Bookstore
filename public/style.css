@@ -4,17 +4,14 @@ body {
 		margin: 0;
 	}
 
-/* formats the red message boxes */
-aside {
-	max-width: 400px;
-	margin: auto;
+#main-title{
+  
+text-align:center;  
 }
+
 .msg {
-	position: fixed;
-	top: 2em;
 	border: 1px solid red;
 	font-weight: bold;
-	background-color: white;
 	color: red;
 	padding: 1em;
 	margin: 2em;
@@ -32,11 +29,15 @@ h1, h2, h3 {
 	color: #444;
 }
 
+h4.book-title-header{
+  font-size:3vw;
+  text-align:center;
+}
+
 h1 {
 	padding: 2.6vw;
 	float: left;
 	font-size: 3vw;
-	margin-left: 6vw;
 }
 
 h2 {
@@ -71,7 +72,6 @@ p, legend {
 }
 
 main {
-	width: 100%;
 	margin-left: 3vw;
 	/* background-color: pink; */
 }
@@ -233,4 +233,74 @@ td {
 td:last-child {
 	width: 10vw;
 	text-align: right;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: DodgerBlue;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.container {
+  align-items:center;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}
+
+.item {
+  margin: 20px;
+  flex: 0 1 calc(20% - 8px); 
+}
+
+.book-name{
+  
+  text-align:center;
+}
+.book-author{
+  
+  text-decoration:italic;
+  text-align:center;
+}
+
+
+.book-price{
+  
+  text-decoration:bold;
+  text-decoration:italic;
+  text-align:center;
 }
