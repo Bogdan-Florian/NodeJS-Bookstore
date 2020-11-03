@@ -71,6 +71,8 @@ fi
 # fi
 
 ./node_modules/.bin/eslint .
+npm test
+
 
 rm .git/COMMIT_MODIFIED || true  # edge case where a commit was intrerupted but COMMIT_MODIFIED was created and contains a message
 
