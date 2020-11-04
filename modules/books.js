@@ -4,7 +4,6 @@ class Books {
 	constructor(dbName) {
 		return (async() => {
 			this.db = await sqlite.open(dbName)
-			// we need this table to store the user accounts
 			await this.db
 			return this
 		})()

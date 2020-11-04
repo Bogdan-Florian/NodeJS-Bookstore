@@ -20,6 +20,7 @@ test('BOOKS : instantiate class and retrieve data', async test => {
 	const books = await new Books('website.db')
 	try {
 		const data = await books.getBooks()
+		data.length
 		test.is(true,true)
 	} catch(err) {
 		test.fail(err)
