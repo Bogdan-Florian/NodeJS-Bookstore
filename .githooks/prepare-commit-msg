@@ -28,7 +28,7 @@ CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 # Check if in PROTECTED_BRANCH
 if [[ "$CURRENT_BRANCH" == "$PROTECTED_BRANCH" ]]; then
     # in PROTECTED_BRANCH: cannot proceed
-    ECHO "in the ${PROTECTED_BRANCH} branch cannot proceed"
+    echo "in the ${PROTECTED_BRANCH} branch cannot proceed"
     echo "Commit passed all tests and is ready to be added"
     echo "  you are trying to merge into the ${PROTECTED_BRANCH} branch"
     echo "  merging branches to master must be done by creating a pull request"
