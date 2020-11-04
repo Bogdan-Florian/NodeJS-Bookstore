@@ -1,34 +1,72 @@
-
 <!doctype html>
-
 <html lang="en">
 	<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<meta charset="utf-8">
 		<title>Home Page</title>
 		<meta name="description" content="form to add new books">
 		<meta name="author" content="Mark Tyers">
 		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
-		<script type="module" src="main.js"></script>
 	</head>
 	<body>
 		<header>
-			<h1>Home</h1>
+			<h1 class="main-title">Home</h1>
 			{{#if authorised}}
 				<a href="/logout">Log out</a>
 			{{else}}
 				<a href="/login">Log in</a>
 			{{/if}}
 		</header>
+ 
+    
+    
+    
 		{{#if msg}}
- 			<aside>
-				<p class="msg">{{msg}}</p>
-			</aside>
+ 			<p class="msg">{{msg}}</p>
 		{{/if}}
 	<main>
-		<p>This is the home page. Users can see it without logging in.</p>
-		{{#if authorised}}
-			<p><a href="/secure">secure page</a></p>
-		{{/if}}
+   <p></p>
+    
+    
+    
+    
+    <div class="flex">
+      
+      {{#each data}}
+    <section>
+      
+      <h2 id="bookname-h2">{{bookname}} <br> {{author}}</h2>
+
+     <a target="_blank" href="/{{id}}">
+    <img src="{{image}}">
+  </a>
+      <aside>
+        <ul>
+          <li id="price">Price: {{price}} €</li>
+        </ul>
+        
+
+<!--         <button>Add to Cart</button>
+         -->
+      </aside>
+    </section>
+    
+      {{/each}}
+      
+    </div>
+    
+    
+    
+    
+    
+    
+
+   
+    
+    
+    
+    
+    
 	</main>
 	</body>
 </html>

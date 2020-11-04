@@ -1,11 +1,10 @@
-#!/bin/sh
-
+#!/bin/bash
 set -e # using the options command to abort script at first error
 echo
 echo "PRE-COMMIT"
 
 EMAIL=$(git config user.email)
-
+echo $EMAIL
 # make sure the user has registered a valid university email address
 if [[ $EMAIL != *"@coventry.ac.uk" ]]; then
 	echo "  invalid config settings"
@@ -44,18 +43,18 @@ if [ "$branch" = "master" ]; then
 fi
 
 # is the current branch a direct child of the master branch?
-# echo "checking parent branch"
-# PARENT=$(git show-branch -a | grep -v `git rev-parse --abbrev-ref HEAD` | grep -v origin | sed 's/.*\[\(.*\)\].*/\1/' | grep -v -e '^$' | grep -v "^----$"
-# echo "parent branch is $PARENT")
+ echo "checking parent branch"
+ PARENT=$(git show-branch -a | grep -v `git rev-parse --abbrev-ref HEAD` | grep -v origin | sed 's/.*\[\(.*\)\].*/\1/' | grep -v -e '^$' | grep -v "^----$"
+ echo "parent branch is $PARENT")
 
 # see if the user is trying to commit to the master branch
-# echo "  you are trying to commit to the '$branch' branch"
-# if [ "$branch" = "master" ]; then
-#   echo "    you can't commit directly to the master branch"
-#   echo "    create a local feature branch first"
-#   echo
-#   exit 1
-# fi
+ echo "  you are trying to commit to the '$branch' branch"
+ if [ "$branch" = "master" ]; then
+   echo "    you can't commit directly to the master branch"
+   echo "    create a local feature branch first"
+   echo
+   exit 1
+ fi
 
 # check for valid branch name:
 
@@ -66,11 +65,28 @@ fi
 #     echo "invalid branch name"
 #     echo "  format is: 'iss000/issue-name'"
 #     echo "  replacing '000' with the issue number and 'issue-name' with the issue name"
-#     echo "  only lower-case letters and replace spaces in the issue name with dashes"
-#     echo "  rename your branch and try again"
-#     exit 1
+ #    echo "  only lower-case letters and replace spaces in the issue name with dashes"
+  #   echo "  rename your branch and try again"
+ #    exit 1
 # fi
 
 ./node_modules/.bin/eslint .
+npm test
+
+
+rm .git/COMMIT_MODIFIED || true  # edge case where a commit was intrerupted but COMMIT_MODIFIED was created and contains a message
+
+exec < /dev/tty # Allows us to read from stdin
+
+# Get 2 messages from keyboard and write them to a file
+while read -p "Commit summary:" COMMIT_SUMMARY ; do
+        echo $COMMIT_SUMMARY >> .git/COMMIT_MODIFIED
+        break
+done
+
+while read -p "Commit tehnical detail:" COMMIT_TEHNICAL ; do
+        echo $COMMIT_TEHNICAL >> .git/COMMIT_MODIFIED
+        break
+done
 
 echo "  commit successful..."

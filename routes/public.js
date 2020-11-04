@@ -5,6 +5,7 @@ import bodyParser from 'koa-body'
 const router = new Router()
 router.use(bodyParser({multipart: true}))
 
+import Books from '../modules/books.js'
 import Accounts from '../modules/accounts.js'
 const dbName = 'website.db'
 
@@ -14,14 +15,19 @@ const dbName = 'website.db'
  * @name Home Page
  * @route {GET} /
  */
+
 router.get('/', async ctx => {
 	try {
+		const books = await new Books(dbName)
+		const data = await books.getBooks()
+		ctx.hbs.data = data
+
 		await ctx.render('index', ctx.hbs)
 	} catch(err) {
+		console.log(err)
 		await ctx.render('error', ctx.hbs)
 	}
 })
-
 
 /**
  * The user registration page.

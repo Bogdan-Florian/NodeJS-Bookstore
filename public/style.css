@@ -4,17 +4,14 @@ body {
 		margin: 0;
 	}
 
-/* formats the red message boxes */
-aside {
-	max-width: 400px;
-	margin: auto;
+#main-title{
+  
+text-align:center;  
 }
+
 .msg {
-	position: fixed;
-	top: 2em;
 	border: 1px solid red;
 	font-weight: bold;
-	background-color: white;
 	color: red;
 	padding: 1em;
 	margin: 2em;
@@ -32,11 +29,15 @@ h1, h2, h3 {
 	color: #444;
 }
 
+h4.book-title-header{
+  font-size:3vw;
+  text-align:center;
+}
+
 h1 {
 	padding: 2.6vw;
 	float: left;
 	font-size: 3vw;
-	margin-left: 6vw;
 }
 
 h2 {
@@ -71,7 +72,6 @@ p, legend {
 }
 
 main {
-	width: 100%;
 	margin-left: 3vw;
 	/* background-color: pink; */
 }
@@ -234,3 +234,153 @@ td:last-child {
 	width: 10vw;
 	text-align: right;
 }
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+}
+
+.flex > section {
+  align-items: center;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  text-align: center;
+  max-width: 400px;
+}
+
+.flex > section > p {
+  flex-grow: 1;
+}
+@media (max-width: 1600px) {
+  .flex > section {  
+    max-width: 350px;
+  }
+}
+
+.flex ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex aside {
+  width: 100%;
+}
+
+
+img {
+  width: 400px;
+  border-radius: 2px;
+}
+
+@media (max-width: 1600px) {
+  img{
+    width: 250px;
+  }
+}
+
+
+nav {
+  background: #330099;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  flex-grow: 1;
+}
+
+nav ul li a {
+  text-align: center;
+  color: #fff;
+  padding: 0.5em;
+  display: block;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+nav ul li a.active {
+  background: #24006B;
+}
+
+nav ul li a:hover {
+  background: #AA80FF;
+  color: #000;
+  font-weight: 700;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  color: #777380;
+  font-weight: 200;
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+.flex > section {
+  background: #fff;
+  padding: 1em;
+  margin: 0.5em;
+  border-radius: 4px;
+}
+
+button {
+  background: #009999 url(https://cdn.pixabay.com/photo/2016/10/10/01/49/hook-1727484_1280.png);
+  background-repeat: no-repeat;
+  background-position: 2em 50%;
+  background-size: 2em;
+  border: 0;  
+  border-radius: 4px;
+  cursor: pointer;
+  color: #FFF;  
+  font-weight: bold;
+  font-size: 13px;
+  padding: 1.5em 3em;
+  padding-left: 6em;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #006B6B;
+  background-size: 3em;
+  background-position: 1.5em 50%;
+}
+
+.flex ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.flex li {
+  background: #eee;
+  font-weight: 700;
+  padding: 0.3em 0.6em;
+  border-radius: 1em;
+  
+   display:block;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:20px;
+}
+
+#bookname-h2{
+  font-size:15px;
+  font-weight:bold;
+}
+
+
