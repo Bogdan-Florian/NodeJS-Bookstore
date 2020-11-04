@@ -235,72 +235,152 @@ td:last-child {
 	text-align: right;
 }
 
-.flex-container {
+.flex {
   display: flex;
   flex-wrap: wrap;
-  background-color: DodgerBlue;
+  justify-content: center; 
 }
 
-.flex-container > div {
-  background-color: #f1f1f1;
-  width: 100px;
-  margin: 10px;
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
-}
-
-
-
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
-}
-
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
-
-div.desc {
-  padding: 15px;
-  text-align: center;
-}
-
-.container {
-  align-items:center;
-  width: 100%;
-  height: 200px;
+.flex > section {
+  align-items: center;
   display: flex;
-  flex-flow: row wrap;
-  position: relative;
+  flex: 1 1 0;
+  flex-direction: column;
+  text-align: center;
+  max-width: 400px;
 }
 
-.item {
-  margin: 20px;
-  flex: 0 1 calc(20% - 8px); 
+.flex > section > p {
+  flex-grow: 1;
+}
+@media (max-width: 1600px) {
+  .flex > section {  
+    max-width: 350px;
+  }
 }
 
-.book-name{
+.flex ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex aside {
+  width: 100%;
+}
+
+
+img {
+  width: 400px;
+  border-radius: 2px;
+}
+
+@media (max-width: 1600px) {
+  img{
+    width: 250px;
+  }
+}
+
+
+nav {
+  background: #330099;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  flex-grow: 1;
+}
+
+nav ul li a {
+  text-align: center;
+  color: #fff;
+  padding: 0.5em;
+  display: block;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+nav ul li a.active {
+  background: #24006B;
+}
+
+nav ul li a:hover {
+  background: #AA80FF;
+  color: #000;
+  font-weight: 700;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  color: #777380;
+  font-weight: 200;
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+.flex > section {
+  background: #fff;
+  padding: 1em;
+  margin: 0.5em;
+  border-radius: 4px;
+}
+
+button {
+  background: #009999 url(https://cdn.pixabay.com/photo/2016/10/10/01/49/hook-1727484_1280.png);
+  background-repeat: no-repeat;
+  background-position: 2em 50%;
+  background-size: 2em;
+  border: 0;  
+  border-radius: 4px;
+  cursor: pointer;
+  color: #FFF;  
+  font-weight: bold;
+  font-size: 13px;
+  padding: 1.5em 3em;
+  padding-left: 6em;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #006B6B;
+  background-size: 3em;
+  background-position: 1.5em 50%;
+}
+
+.flex ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.flex li {
+  background: #eee;
+  font-weight: 700;
+  padding: 0.3em 0.6em;
+  border-radius: 1em;
   
-  text-align:center;
+   display:block;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:20px;
 }
-.book-author{
-  
-  text-decoration:italic;
-  text-align:center;
+
+#bookname-h2{
+  font-size:15px;
+  font-weight:bold;
 }
 
 
-.book-price{
-  
-  text-decoration:bold;
-  text-decoration:italic;
-  text-align:center;
-}
