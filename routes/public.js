@@ -21,7 +21,7 @@ router.get('/', async ctx => {
 		const books = await new Books(dbName)
 		const data = await books.getBooks()
 		ctx.hbs.data = data
-
+    ctx.session.data = data
 		await ctx.render('index', ctx.hbs)
 	} catch(err) {
 		console.log(err)
@@ -85,5 +85,16 @@ router.get('/logout', async ctx => {
 	ctx.session.authorised = null
 	ctx.redirect('/?msg=you are now logged out')
 })
+
+
+router.get('/:id', async ctx => {
+    let bookId = ctx.params['id']
+    const books = await new Books(dbName)
+    let bookData = await books.getIndividualBook(bookId)
+    ctx.hbs.data = bookData
+    await ctx.render('product',ctx.hbs)
+
+});
+
 
 export default router
