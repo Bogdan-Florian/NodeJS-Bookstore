@@ -17,63 +17,38 @@
 				<a href="/login">Log in</a>
 			{{/if}}
 		</header>
- 
-    
-    
     
 		{{#if msg}}
  			<p class="msg">{{msg}}</p>
 		{{/if}}
+
 	<main>
-   <p></p>
-    
-    
-    
-    
-    <div class="flex">
-      
-      {{#each data}}
-    <section>
-      
- 
-      
-    <a href="/{{id}}">
-      
-      
-             <h2 id="bookname-h2">{{bookname}} <br> {{author}}</h2>  
+     {{#each data}}
+  
+
+<div class="card">
+        <img class="card-image" src="{{image}}" style="width:100%">
+  <h1> <b> {{bookname}} </b> </h1>
+  <p class="price">Price: <b>{{price}} € </b> </p>
+  <p><b>Description</b></p>
+  <p> {{description}}</p>
+
+  <p><b>EAN: </b>  {{ean}}</p>
+			      {{/each}}
+
+  
+{{#if authorised}}
+
+<p><button>Buy</button></p>
+                  </div>  
+        {{/if}}
 
       
-      
-      
-      
-      </a>
 
-     <a href="/{{id}}">
-    <img src="{{image}}">
-  </a>
-      <aside>
-        <ul>
-          <li id="price">Price: {{price}} €</li>
-        </ul>
-        
 
-<!--         <button>Add to Cart</button>
-         -->
-      </aside>
-    </section>
-    
-      {{/each}}
-      
-    </div>
-    
-    
-    
-    
-    
-    
 
-   
-    
+
+
     
     
     

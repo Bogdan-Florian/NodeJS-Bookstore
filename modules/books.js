@@ -16,8 +16,18 @@ class Books {
 			throw new Error('Database could not retrieve data')
 		}
 		return data
+	}
+	async getIndividualBook(id) {
+		const data = await this.db.all('SELECT * FROM books INNER JOIN  books_extra ON \
+                                     books.id = books_extra.id WHERE books.id = $id', {
+			$id: id,
+		})
 
 
+		if (data === null || undefined) {
+			throw new Error('Database could not retrieve data')
+		}
+		return data
 	}
 
 	async close() {

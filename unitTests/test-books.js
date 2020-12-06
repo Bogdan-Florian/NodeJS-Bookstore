@@ -1,7 +1,7 @@
 import test from 'ava'
 import Books from '../modules/books.js'
 
-test('BOOKS : if database returns an empty object', async test => {
+test('BOOKS : database does not contain any empty objects', async test => {
 	test.plan(1)
 	const books = await new Books('website.db')
 	try {
@@ -26,6 +26,21 @@ test('BOOKS : instantiate class and retrieve data', async test => {
 		test.fail(err)
 	} finally {
 		books.close()
+	}
+})
+
+
+test('BOOKS : Individual books has no missing fields', async test => {
+	test.plan(0)
+
+
+	const individualBook = await new Books('website.db')
+
+	const data = await individualBook.db.all('SELECT * FROM books INNER JOIN books_extra ON books.id = books_extra.id')
+	for (const each in data) {
+		if(data[each] === undefined || data[each].length === 0) {
+			test.fail(`Test failed at record number: ${ each}`)
+		}
 	}
 })
 
