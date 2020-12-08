@@ -7,12 +7,18 @@
 		<meta name="description" content="form to add new books">
 		<meta name="author" content="Mark Tyers">
 		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+<!--     <script src="{{host}}/product.js"></script> -->
 	</head>
 	<body>
 		<header>
 			<h1 class="main-title">Home</h1>
 			{{#if authorised}}
 				<a href="/logout">Log out</a>
+         <button class="custom-file-upload">
+      Checkout items in basket
+      </button>
+      
+      
 			{{else}}
 				<a href="/login">Log in</a>
 			{{/if}}
@@ -23,12 +29,15 @@
 		{{/if}}
 
 	<main>
+   
+    
+    
      {{#each data}}
   
 
 <div class="card">
         <img class="card-image" src="{{image}}" style="width:100%">
-  <h1> <b> {{bookname}} </b> </h1>
+  <h1 id="book-name"> <b> {{bookname}} </b> </h1>
   <p class="price">Price: <b>{{price}} € </b> </p>
   <p><b>Description</b></p>
   <p> {{description}}</p>
@@ -39,8 +48,10 @@
   
 {{#if authorised}}
 
-<p><button>Buy</button></p>
-                  </div>  
+<p><button class = "button-custom">Add to cart</button></p>
+
+    
+</div>  
         {{/if}}
 
       
