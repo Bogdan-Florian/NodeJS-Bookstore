@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', event => {
 	const userIdentity = getCookie('UUID')
 	if (userIdentity === '') {
 		setCookie('UUID', createUUID(), 100)
-    window.localStorage.setItem("purchaseList", "empty")
+		window.localStorage.setItem('Basket', 'empty')
 	} else{
 		console.log(getCookie('UUID'))
 	}
