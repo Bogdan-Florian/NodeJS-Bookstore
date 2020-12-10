@@ -96,5 +96,17 @@ router.get('/product/:id', async ctx => {
 
 })
 
+router.get('/basket', async ctx => {
+	await ctx.render('basket',ctx.hbs)
+
+})
+
+
+router.post('/sentBasketItems', async ctx => {
+	ctx.hbs.body = ctx.request.body
+	console.log(ctx.hbs)
+	ctx.status = 200
+})
+
 
 export default router

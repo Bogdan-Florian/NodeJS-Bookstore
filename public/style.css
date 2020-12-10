@@ -232,7 +232,7 @@ td {
 
 td:last-child {
 	width: 10vw;
-	text-align: right;
+	text-align: intial;
 }
 
 .flex {
@@ -360,6 +360,13 @@ button:hover {
   background-size: 3em;
   background-position: 1.5em 50%;
 }
+
+.remove-button:hover {
+  background-color: #c60f22;
+  background-size: 3em;
+  background-position: 1.5em 50%;
+}
+
 
 .flex ul {
   list-style-type: none;
