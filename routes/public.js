@@ -87,7 +87,7 @@ router.get('/logout', async ctx => {
 })
 
 
-router.get('/:id', async ctx => {
+router.get('/product/:id', async ctx => {
 	const bookId = ctx.params['id']
 	const books = await new Books(dbName)
 	const bookData = await books.getIndividualBook(bookId)
