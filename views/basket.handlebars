@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+	<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<meta charset="utf-8">
+		<title>Home Page</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="Mark Tyers">
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+    <script type="module" src="{{host}}/basket.js"></script>
+	</head>
+	<body>
+		<header>
+      
+			{{#if authorised}}
+      
+				<a href="/logout">Log out</a>
+      
+              <a href="/">Home</a>
+
+      
+      
+			{{else}}
+				<a href="/login">Log in</a>
+			{{/if}}
+      
+      
+      
+      
+      
+      
+		</header>
+ 
+   
+    
+		{{#if msg}}
+ 			<p class="msg">{{msg}}</p>
+		{{/if}}
+	<main>
+
+
+<div class="px-4 px-lg-0">
+  <div class="pb-5">
+    <div class="container-basket">
+      <div class="row">
+        <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">Product</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Price</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Quantity</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Remove</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+            
+                {{#each data}}
+                
+                
+            
+           
+                
+                
+                
+                
+                
+                
+                
+                <tr class="book" id={{id}}>
+                  <th scope="row" class="border-0">
+                    <div class="p-2">
+                      
+                      <img src="{{image}}" alt="" width="70" class="img-fluid rounded shadow-sm">
+                      <a href="/product/{{id}}"> <p> {{bookname}}</p> </a>
+                      <div class="ml-3 d-inline-block align-middle">
+                        <h5 class="mb-0"> <a href="/product/{{id}}" class="text-dark d-inline-block align-middle">{{boookname}}</a></h5><span class="text-muted font-weight-normal font-italic d-block"></span>
+                      </div>
+                    </div>
+                  </th>
+                  <td class="border-0 align-middle"><strong id="book-price">{{price}} €</strong></td>
+                  <td class="border-0 align-middle"><strong>1</strong></td>
+                  <td class="border-0 align-middle"><button class="button-book" id={{id}} type="button" class="remove-button">×</button></td>
+                  
+                </tr>
+ 
+             {{/each}}
+                
+                
+                          <th>
+                
+                    <td class="border-0 align-middle"><strong id="price-total">Total:</strong></td>
+
+                            </th>
+                
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	</main>
+	</body>
+</html>

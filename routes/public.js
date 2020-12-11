@@ -64,6 +64,11 @@ router.get('/login', async ctx => {
 	await ctx.render('login', ctx.hbs)
 })
 
+router.get('/basket', async ctx => {
+	ctx.hbs.data = ctx.session.data
+	await ctx.render('basket', ctx.hbs)
+})
+
 router.post('/login', async ctx => {
 	const account = await new Accounts(dbName)
 	ctx.hbs.body = ctx.request.body
@@ -87,13 +92,20 @@ router.get('/logout', async ctx => {
 })
 
 
-router.get('/:id', async ctx => {
+router.get('/product/:id', async ctx => {
 	const bookId = ctx.params['id']
 	const books = await new Books(dbName)
 	const bookData = await books.getIndividualBook(bookId)
 	ctx.hbs.data = bookData
 	await ctx.render('product',ctx.hbs)
 
+})
+
+
+router.post('/sentBasketItems', async ctx => {
+	ctx.hbs.body = ctx.request.body
+	console.log(ctx.hbs)
+	ctx.status = 200
 })
 
 

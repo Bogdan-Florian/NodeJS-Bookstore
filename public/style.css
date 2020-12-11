@@ -232,7 +232,7 @@ td {
 
 td:last-child {
 	width: 10vw;
-	text-align: right;
+	text-align: intial;
 }
 
 .flex {
@@ -337,7 +337,7 @@ h2 {
   border-radius: 4px;
 }
 
-button {
+.button-custom {
   background: #009999 url(https://cdn.pixabay.com/photo/2016/10/10/01/49/hook-1727484_1280.png);
   background-repeat: no-repeat;
   background-position: 2em 50%;
@@ -360,6 +360,13 @@ button:hover {
   background-size: 3em;
   background-position: 1.5em 50%;
 }
+
+.remove-button:hover {
+  background-color: #c60f22;
+  background-size: 3em;
+  background-position: 1.5em 50%;
+}
+
 
 .flex ul {
   list-style-type: none;
@@ -431,3 +438,12 @@ button:hover {
   
 }
 
+
+header > button{
+  margin-top: 3vw;
+	margin-right: 3vw;
+	float: right;
+	font-size: 1.3vw;
+
+
+}

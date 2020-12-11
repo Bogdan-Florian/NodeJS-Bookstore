@@ -7,12 +7,22 @@
 		<meta name="description" content="form to add new books">
 		<meta name="author" content="Mark Tyers">
 		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+        <script type="module" src="{{host}}/index.js"></script>
 	</head>
 	<body>
 		<header>
+      
 			<h1 class="main-title">Home</h1>
 			{{#if authorised}}
+      
+      
 				<a href="/logout">Log out</a>
+      
+       <button class="custom-file-upload">
+      Checkout items in basket
+      </button>
+      
+      
 			{{else}}
 				<a href="/login">Log in</a>
 			{{/if}}
@@ -37,7 +47,7 @@
       
  
       
-    <a href="/{{id}}">
+    <a href="/product/{{id}}">
       
       
              <h2 id="bookname-h2">{{bookname}} <br> {{author}}</h2>  
@@ -48,7 +58,7 @@
       
       </a>
 
-     <a href="/{{id}}">
+     <a href="/product/{{id}}">
     <img src="{{image}}">
   </a>
       <aside>
