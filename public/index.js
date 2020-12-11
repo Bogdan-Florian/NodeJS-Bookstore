@@ -4,6 +4,9 @@ If they do not have one it means its their first time
 on the website and a UUID is generated and set for them
 */
 window.addEventListener('DOMContentLoaded', event => {
+	const checkout = document.getElementsByClassName('custom-file-upload')[0]
+	checkout.addEventListener('click', checkoutItems, true)
+
 	const userIdentity = getCookie('UUID')
 	if (userIdentity === '') {
 		setCookie('UUID', createUUID(), 100)
@@ -33,7 +36,6 @@ function setCookie(cname, cvalue, exdays) {
 	d.setTime(d.getTime() + exdays* miliseconds)
 	const expires = `expires=${ d.toUTCString()}`
 	document.cookie = `${cname }=${ cvalue };${ expires };path=/`
-	console.log()
 }
 
 
@@ -54,4 +56,11 @@ function getCookie(cname) {
 		}
 	}
 	return ''
+}
+
+
+function checkoutItems() {
+	window.location.href = '/basket'
+
+
 }

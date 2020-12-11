@@ -64,6 +64,11 @@ router.get('/login', async ctx => {
 	await ctx.render('login', ctx.hbs)
 })
 
+router.get('/basket', async ctx => {
+	ctx.hbs.data = ctx.session.data
+	await ctx.render('basket', ctx.hbs)
+})
+
 router.post('/login', async ctx => {
 	const account = await new Accounts(dbName)
 	ctx.hbs.body = ctx.request.body
@@ -93,11 +98,6 @@ router.get('/product/:id', async ctx => {
 	const bookData = await books.getIndividualBook(bookId)
 	ctx.hbs.data = bookData
 	await ctx.render('product',ctx.hbs)
-
-})
-
-router.get('/basket', async ctx => {
-	await ctx.render('basket',ctx.hbs)
 
 })
 

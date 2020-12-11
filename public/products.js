@@ -11,26 +11,6 @@ window.addEventListener('DOMContentLoaded', event => {
 
 })
 
-function checkoutItems() {
-
-
-	const basketList = JSON.parse(window.localStorage.getItem('Basket')),
-		xhr = new XMLHttpRequest()
-	xhr.open('POST', '/sentBasketItems')
-	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-	xhr.onload = function() {
-
-		if (xhr.status === 200) {
-			window.location.replace('/basket')
-		} else{
-			alert('Something went wrong[DEBUGGING]')
-		}
-	}
-	xhr.send(encodeURI(basketList))
-
-}
-
-
 function addToBasket() {
 	const bookId = window.location.pathname.split('/').pop()
 	if (isEmptyBasket()) {
@@ -65,6 +45,13 @@ function isEmptyBasket() {
 	}
 	console.log('Basket not empty')
 	return false
+
+
+}
+
+
+function checkoutItems() {
+	window.location.href = '/basket'
 
 
 }
