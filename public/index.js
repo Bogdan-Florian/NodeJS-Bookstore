@@ -6,7 +6,6 @@ on the website and a UUID is generated and set for them
 window.addEventListener('DOMContentLoaded', event => {
 	const checkout = document.getElementsByClassName('custom-file-upload')[0]
 	checkout.addEventListener('click', checkoutItems, true)
-
 	const userIdentity = getCookie('UUID')
 	if (userIdentity === '') {
 		setCookie('UUID', createUUID(), 100)
@@ -21,8 +20,6 @@ window.addEventListener('DOMContentLoaded', event => {
 function createUUID() {
 	const uniqueId = Date.now().toString(36) + Math.random().toString(36).substring(2)
 	return uniqueId
-
-
 }
 
 /*
@@ -61,6 +58,5 @@ function getCookie(cname) {
 
 function checkoutItems() {
 	window.location.href = '/basket'
-
 
 }

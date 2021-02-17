@@ -18,6 +18,9 @@ const dbName = 'website.db'
 
 router.get('/', async ctx => {
 	try {
+		if (ctx.session.basket === undefined) {
+			ctx.session.basket = []
+		}
 		const books = await new Books(dbName)
 		const data = await books.getBooks()
 		ctx.hbs.data = data
@@ -77,6 +80,9 @@ router.post('/login', async ctx => {
 		await account.login(body.user, body.pass)
 		ctx.session.authorised = true
 		const referrer = body.referrer || '/'
+		if (ctx.session.basket === undefined) {
+			ctx.session.basket = []
+		}
 		return ctx.redirect(`${referrer}?msg=you are now logged in...`)
 	} catch(err) {
 		ctx.hbs.msg = err.message
@@ -102,9 +108,16 @@ router.get('/product/:id', async ctx => {
 })
 
 
-router.post('/sentBasketItems', async ctx => {
-	ctx.hbs.body = ctx.request.body
-	console.log(ctx.hbs)
+router.post('/addItem', async ctx => {
+	const bookId = ctx.request.body['id']
+	const bookInBasket = bookId in ctx.session.basket
+	if (!bookInBasket) {
+		ctx.session.basket.push(bookId)
+	} else{
+		ctx.response.body = 'failed'
+	}
+
+
 	ctx.status = 200
 })
 

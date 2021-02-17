@@ -10,6 +10,7 @@ async function checkAuth(ctx, next) {
 	await next()
 }
 
+
 router.use(checkAuth)
 
 router.get('/', async ctx => {

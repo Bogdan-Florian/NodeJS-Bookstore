@@ -16,14 +16,15 @@
 	"scripts": {
 		"start": "node index.js",
 		"jsdoc": "node_modules/.bin/jsdoc -c jsdoc.conf",
-		"linter": "node_modules/.bin/eslint .",
-		"test": "ava"
+		"linter": "node_modules/.bin/eslint . --fix",
+		"test": "c8 ava"
 	},
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
 		"bcrypt": "^5.0.0",
 		"bcrypt-promise": "^2.0.0",
+		"c8": "^7.4.0",
 		"handlebars": "^4.7.6",
 		"koa": "^2.13.0",
 		"koa-body": "^4.2.0",
@@ -32,6 +33,7 @@
 		"koa-static": "^5.0.0",
 		"koa-views": "^6.3.0",
 		"node-pre-gyp": "^0.16.0",
+		"nodemon": "^2.0.7",
 		"save-dev": "0.0.1-security",
 		"sqlite-async": "^1.1.0",
 		"sqlite3": "^5.0.0"

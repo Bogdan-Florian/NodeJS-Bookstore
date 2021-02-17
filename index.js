@@ -8,6 +8,7 @@ import router from './routes/routes.js'
 
 const app = new Koa()
 app.keys = ['darkSecret']
+
 const defaultPort = 8080
 const port = process.env.PORT || defaultPort
 
