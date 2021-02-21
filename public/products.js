@@ -6,13 +6,12 @@ window.addEventListener('DOMContentLoaded', event => {
 	addCart.addEventListener('click', addToBasket, true)
 	checkoutItems.addEventListener('click', checkoutRedirect, true)
   
-})
+});
 
 function checkoutRedirect() {
   	window.location.href = '/basket'
 
 }
-
 function addToBasket() {
 	const bookId = window.location.pathname.split('/').pop()
 	console.log(bookId)
